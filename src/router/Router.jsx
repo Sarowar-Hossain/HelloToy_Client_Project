@@ -9,6 +9,7 @@ import AddToys from '../pages/AddToys/AddToys'
 import MyToys from '../pages/MyToys/MyToys'
 import Blog from '../pages/Blog/Blog'
 import Login from '../pages/Login/Login'
+import NotFound from "../NotFound/NotFound";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +44,6 @@ export const router = createBrowserRouter([
     },
     {
         path: '*',
-        element: <div><h1>Error Page Not Found</h1></div>
+        element: <NotFound></NotFound>
     }
 ])
