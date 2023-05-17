@@ -1,19 +1,17 @@
-import { useState } from "react";
 import "./App.css";
+import Header from "./pages/Header/Header";
+import Footer from "./pages/Footer/Footer";
+import Home from "./pages/Home/Home/Home";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <h1>hello from hello toys</h1>
-      <button className="btn">Button</button>
-      <button className="btn btn-primary">Button</button>
-      <button className="btn btn-secondary">Button</button>
-      <button className="btn btn-accent">Button</button>
-      <button className="btn btn-ghost">Button</button>
-      <button className="btn btn-link">Button</button>
-    </>
+    <div className="container mx-auto ">
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </div>
   );
 }
 

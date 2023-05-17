@@ -1,0 +1,122 @@
+[
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Sports Car",
+      "price": 19.99,
+      "rating": 4.5,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Sports Cars",
+      "quantity": 10,
+      "description": "This sleek sports car is perfect for racing around the living room. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright red color and realistic details make it a favorite among car enthusiasts of all ages."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Truck",
+      "price": 24.99,
+      "rating": 4.0,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Trucks",
+      "quantity": 5,
+      "description": "This sturdy truck is great for hauling toys and other items. Its large cargo bed can hold a variety of objects, and the durable tires can handle any terrain. The realistic design and attention to detail make it a favorite among young truck enthusiasts."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Regular Car",
+      "price": 14.99,
+      "rating": 3.5,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Regular Cars",
+      "quantity": 15,
+      "description": "This classic car is perfect for cruising around the house. Its smooth wheels and realistic design make it feel like a real car. The bright blue color and attention to detail make it a favorite among car enthusiasts of all ages."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Mini Fire Truck",
+      "price": 9.99,
+      "rating": 4.2,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Mini Fire Trucks",
+      "quantity": 8,
+      "description": "This mini fire truck is great for imaginative play and rescuing stuffed animals. With its bright red color and realistic design, it looks just like a real fire truck. The extendable ladder and movable wheels make it a favorite among young firefighters."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Mini Police Car",
+      "price": 9.99,
+      "rating": 4.0,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Mini Police Cars",
+      "quantity": 12,
+      "description": "This mini police car is perfect for chasing down imaginary criminals. With its bright blue and white color scheme and realistic design, it looks just like a real police car. The movable wheels and attention to detail make it a favorite among young law enforcement officers."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Vintage Car",
+      "price": 29.99,
+      "rating": 4.8,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Vintage Toys Co.",
+      "sellerEmail": "info@vintagetoys.com",
+      "subCategory": "Vintage Cars",
+      "quantity": 3,
+      "description": "This vintage car is a perfect addition to any toy car collection. With its classic design and attention to detail, it looks just like a car from the 1950s. The bright red color and smooth wheels make it a favorite among car enthusiasts of all ages."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Monster Truck",
+      "price": 34.99,
+      "rating": 4.2,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Extreme Toys Inc.",
+      "sellerEmail": "info@extremetoys.com",
+      "subCategory": "Monster Trucks",
+      "quantity": 6,
+      "description": "This monster truck is ready to crush and smash anything in its way. With its oversized tires and sturdy design, it can handle even the toughest terrain. The realistic details and attention to detail make it a favorite among young monster truck fans."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Ambulance",
+      "price": 12.99,
+      "rating": 4.0,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "Emergency Vehicles",
+      "quantity": 10,
+      "description": "This ambulance is ready to save the day! With its bright white and red color scheme and realistic design, it looks just like a real ambulance. The movable wheels and attention to detail make it a favorite among young paramedics."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Race Car",
+      "price": 17.99,
+      "rating": 4.5,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Racing Toys LLC",
+      "sellerEmail": "info@racingtoys.com",
+      "subCategory": "Race Cars",
+      "quantity": 7,
+      "description": "This race car is perfect for high-speed racing action. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright green color and realistic details make it a favorite among young race car fans."
+    },
+    {
+      "picture": "https://i.ibb.co/G2FdWHx/demo-pic-product.jpg",
+      "name": "Taxi",
+      "price": 11.99,
+      "rating": 3.8,
+      "sellerPic": "https://example.com/seller-pic.jpg",
+      "sellerName": "Best Toys Inc.",
+      "sellerEmail": "info@besttoys.com",
+      "subCategory": "City Vehicles",
+      "quantity": 9,
+      "description": "This taxi is ready to take you on a ride around town. With its bright yellow color and realistic design, it looks just like a real taxi. The movable wheels and attention to detail make it a favorite among young city drivers."
+    }
+  ]
