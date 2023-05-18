@@ -4,21 +4,29 @@ import { Link } from "react-router-dom";
 const HotOffer = () => {
   return (
     <div className="w-full ">
-        <h1 className="text-5xl font-bold text-center my-14 underline text-c">Special Offer For Limited Time</h1>
-      <div className="flex justify-center items-center">
-        <div className="flex items-center gap-10">
-          <div className="w-1/2">
+      <h1
+        style={{ fontFamily: "Caveat, cursive" }}
+        className="text-center font-bold text-4xl md:text-6xl mt-20 text-cyan-500 underline"
+      >
+        Special Offer
+      </h1>
+      <h1 className="text-2xl font-semibold text-center mb-14 mt-4">
+        Special Offer For Limited Time
+      </h1>
+      <div className="md:flex justify-center items-center">
+        <div className="md:flex items-center gap-10">
+          <div className="md:w-1/2">
             <img
-              className="w-full h-[800px] object-cover object-bottom rounded-2xl"
-              src="https://img.freepik.com/free-photo/wooden-red-toy-train-wooden-tracks_181624-18723.jpg?w=740&t=st=1684363376~exp=1684363976~hmac=f554dd4b1ce2ea440751d417d01c817fe54e3e0df100596aba614ee5ca05d6d0"
+              className="md:w-full md:h-[800px] object-cover object-bottom rounded-2xl "
+              src="https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318361.jpg?w=740&t=st=1684438336~exp=1684438936~hmac=7e92e93bc3345bc5d998f9253707fa7170ea3736b3b567ae2344cda1e2d389b4"
               alt=""
             />
           </div>
-          <div className="w-1/2 space-y-6 px-8">
-            <h1 className="font-bold text-4xl text-black">
+          <div className="md:w-1/2 space-y-8 my-8 px-8 md:space-y-6">
+            <h1 className="font-bold text-center md:text-left text-4xl text-black">
               Kids Funny Car Toys
             </h1>
-            <p className="font-bold text-2xl text-black">
+            <p className="font-bold text-center md:text-left text-3xl text-black">
               $49.99{" "}
               <span className="font-semibold text-3xl text-orange-600 ms-4">
                 25% OFF

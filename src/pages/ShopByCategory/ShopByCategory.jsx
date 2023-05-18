@@ -22,11 +22,10 @@ const ShopByCategory = () => {
     const filterData = data.filter((dt) => dt.subCategory === name);
     setCategoryData(filterData);
   };
-  //   console.log(data);
-  // console.log(categoryData);
+
   return (
     <div className="text-center my-14">
-      <h1 style={{ fontFamily: "Caveat, cursive" }} className="text-center font-bold text-6xl mt-20 text-cyan-500 underline">Popular Category</h1>
+      <h1 style={{ fontFamily: "Caveat, cursive" }} className="text-center font-bold text-4xl md:text-6xl mt-20 text-cyan-500 underline">Popular Category</h1>
       <p className="my-8 font-semibold text-xl">Product Category</p>
       <div>
         <Tabs className="text-center font-semibold text-xl text-cyan-500">
@@ -39,21 +38,21 @@ const ShopByCategory = () => {
           </TabList>
 
           <TabPanel>
-            <div className="flex justify-center gap-10 ">
+            <div className="md:flex justify-center md:gap-10 space-y-4">
               {categoryData.map((category) => (
                 <CategoryCard category={category}></CategoryCard>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="flex justify-center gap-10 ">
+            <div className="md:flex justify-center md:gap-10 space-y-4">
               {categoryData.map((category) => (
                 <CategoryCard category={category}></CategoryCard>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="flex justify-center gap-10 ">
+            <div className="md:flex justify-center md:gap-10 space-y-4">
               {categoryData.map((category) => (
                 <CategoryCard category={category}></CategoryCard>
               ))}
