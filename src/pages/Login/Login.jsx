@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { UserContext } from "../../Context/Context";
 
 const Login = () => {
   const [passCheck, setPassCheck] = useState(true);
   const [loginOk, setLoginOk] = useState(false);
+  const location = useLocation();
+  const redirect = location.state?.from?.pathname || "/";
   const { googleSignIn, loginUserWithEmailPass, passReset, setUser } =
     useContext(UserContext);
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const Login = () => {
         console.log(user);
         setUser(user);
         setLoginOk(true);
-        navigate("/");
+        navigate(redirect, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -39,8 +41,7 @@ const Login = () => {
         console.log(user);
         setUser(user);
         e.target.reset();
-
-        navigate("/");
+        navigate(redirect, { replace: true });
       })
       .catch((error) => console.log(error.message));
   };
