@@ -5,6 +5,7 @@ import { UserContext } from "../../Context/Context";
 
 const Login = () => {
   const [passCheck, setPassCheck] = useState(true);
+  const [loginOk, setLoginOk] = useState(false);
   const { googleSignIn, loginUserWithEmailPass, passReset, setUser } =
     useContext(UserContext);
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setUser(user);
+        setLoginOk(true);
         navigate("/");
       })
       .catch((error) => {
@@ -37,6 +39,7 @@ const Login = () => {
         console.log(user);
         setUser(user);
         e.target.reset();
+
         navigate("/");
       })
       .catch((error) => console.log(error.message));
@@ -88,6 +91,16 @@ const Login = () => {
               type="password"
               placeholder="******************"
             />
+            {loginOk ? (
+              <>
+                {" "}
+                <p className="show-error text-cyan-500-500 text-base italic">
+                  Login Successful!
+                </p>
+              </>
+            ) : (
+              <></>
+            )}
             {passCheck ? (
               <></>
             ) : (

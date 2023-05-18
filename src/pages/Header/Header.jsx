@@ -1,14 +1,32 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   console.log(user);
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = "https://fonts.googleapis.com/css2?family=Caveat&display=swap";
   document.head.appendChild(link);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        Swal.fire({
+          // position: 'top-end',
+          icon: 'success',
+          title: 'Logout Successful!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        navigate("/");
+        window.location.reload();
+      })
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     <div className="navbar mt-2">
@@ -81,7 +99,7 @@ const Header = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} title={user?.displayName}/>
+                    <img src={user?.photoURL} title={user?.displayName} />
                   </div>
                 </label>
                 <ul
@@ -98,7 +116,7 @@ const Header = () => {
                     <a>Settings</a>
                   </li>
                   <li>
-                    <a>Logout</a>
+                    <button onClick={handleLogout}>Logout</button>
                   </li>
                 </ul>
               </div>

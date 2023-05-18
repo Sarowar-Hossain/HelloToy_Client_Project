@@ -10,19 +10,17 @@ const Home = () => {
   const { user, spinner } = useContext(UserContext);
   return (
     <div>
-      {user ? (
-        <>
-          {" "}
-          <Banner></Banner>
-          <Gallary></Gallary>
-          <ShopByCategory></ShopByCategory>
-          <HotOffer></HotOffer>
-        </>
+      {/* {user ? (
+        <> </>
       ) : (
         <>
           <div className="flex justify-center items-center">{spinner()}</div>
         </>
-      )}
+      )} */}
+      <Banner></Banner>
+      <Gallary></Gallary>
+      <ShopByCategory></ShopByCategory>
+      <HotOffer></HotOffer>
     </div>
   );
 };
