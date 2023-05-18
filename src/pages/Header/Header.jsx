@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { UserContext } from "../../Context/Context";
 
 const Header = () => {
+  const { user } = useContext(UserContext);
+  console.log(user);
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = "https://fonts.googleapis.com/css2?family=Caveat&display=swap";
@@ -20,7 +23,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex-none">
-        <div className="flex gap-6 text-xl font-semibold">
+        <div className="flex gap-6 items-center text-xl font-semibold">
           <NavLink
             className={({ isActive }) =>
               isActive
@@ -71,40 +74,50 @@ const Header = () => {
           >
             Blog
           </NavLink>
-          <Link
-            className={({ isActive }) =>
-              isActive
-                ? "font-semibold underline text-xl text-cyan-500"
-                : "font-semibold text-xl"
-            }
-            to="/login"
-          >
-            Login
-          </Link>
-        </div>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+
+          {user ? (
+            <>
+              {" "}
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} title={user?.displayName}/>
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-semibold underline text-xl text-cyan-500"
+                    : "font-semibold text-xl"
+                }
+                to="/login"
+              >
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

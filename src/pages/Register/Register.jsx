@@ -1,23 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/Context";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { userSignUp,logout } = useContext(UserContext);
+  const navigate = useNavigate();
 
 
-    const handleRegister =(e)=>{
-        e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const photo = e.target.photo.value;
-        console.log(name, email, photo, password);
-    }
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const photo = e.target.photo.value;
+
+    userSignUp(email, password)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+      // navigator("/signin");
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
+        .then(() => {
+          logout();
+          navigate('/login')
+          e.target.reset();
+          console.log('successful')
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  };
 
   return (
     <div className="flex h-screen max-w-screen max-h-screen justify-center items-center">
       <div className="w-[500px] h-[600px]">
         <h1 className="text-center font-semibold text-4xl mb-4">Register</h1>
-        <form onSubmit={handleRegister} className="bg-white shadow-md rounded py-10 px-8 pt-14 mb-4">
+        <form
+          onSubmit={handleRegister}
+          className="bg-white shadow-md rounded py-10 px-8 pt-14 mb-4"
+        >
           <div className="mb-2">
             <label
               className="block text-cyan-500 text-xl font-semibold mb-2"
