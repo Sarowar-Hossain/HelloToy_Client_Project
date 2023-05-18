@@ -9,9 +9,9 @@ const CategoryCard = ({ category }) => {
 
   return (
     // <div className="flex">
-    <div className="card w-96 bg-base-100 shadow-xl text-center">
-      <figure>
-        <img src={picture} alt="Shoes" />
+    <div className="card w-[450px] bg-base-100 shadow-xl text-center">
+      <figure className="">
+        <img className="" src={picture} alt="Shoes" />
       </figure>
       <div className="card-body mx-auto">
         <h2 className="text-center text-gray-800 font-bold text-2xl">Name: {name}</h2>
