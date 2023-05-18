@@ -109,7 +109,7 @@ const Register = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-cyan-500 hover:bg-cyan-700 w-full text-white text-xl font-bold py-3 px-6 rounded "
+              className="bg-cyan-500 hover:bg-cyan-700 w-full text-white text-xl font-bold py-3 px-6 rounded"
               type="submit"
             >
               Register

@@ -1,11 +1,9 @@
 import React from "react";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
-  const { name, picture, price, rating } = category;
-
-
-
+  const { name, picture, price, rating, _id } = category;
 
   return (
     // <div className="flex">
@@ -23,9 +21,9 @@ const CategoryCard = ({ category }) => {
         />
         <div className="flex items-center gap-10">
           <p className="font-bold text-2xl">${price}</p>
-          <button className="bg-cyan-500 px-4 py-2 rounded-md text-white font-semibold normal-case">
+          <Link to={`/productDetails/${_id}`} className="bg-cyan-500 px-4 py-2 rounded-md text-white font-semibold normal-case">
             Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>

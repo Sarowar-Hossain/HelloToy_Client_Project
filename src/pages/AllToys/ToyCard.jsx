@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ToyCard = ({ product }) => {
   const {
@@ -45,7 +46,7 @@ const ToyCard = ({ product }) => {
         </td>
         <td className="text-lg font-semibold">${price}</td>
         <th>
-          <button className="font-semibold bg-cyan-500 text-base text-white px-3 rounded-lg">Details</button>
+          <Link to={`/productDetails/${_id}`} className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 rounded-lg">Details</Link>
         </th>
       </tr>
     </tbody>
