@@ -22,8 +22,8 @@ const ShopByCategory = () => {
     const filterData = data.filter((dt) => dt.subCategory === name);
     setCategoryData(filterData);
   };
-    console.log(data);
-  console.log(categoryData);
+  //   console.log(data);
+  // console.log(categoryData);
   return (
     <div className="text-center my-14">
       <h1 style={{ fontFamily: "Caveat, cursive" }} className="text-center font-bold text-6xl mt-20 text-cyan-500 underline">Popular Category</h1>

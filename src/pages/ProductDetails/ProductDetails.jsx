@@ -79,7 +79,7 @@ const ProductDetails = () => {
             <div className=" flex gap-4 my-3">
               <p className="flex items-center gap-4">
                 <FaShirtsinbulk className="text-3xl text-cyan-500"></FaShirtsinbulk>
-                <span className="font-base text-xl">Gift Voucher</span>
+                <span className="font-base text-xl">Free Delivery</span>
               </p>
               <p className="flex items-center gap-4">
                 <FaUserAlt className="text-3xl text-cyan-500"></FaUserAlt>
@@ -91,8 +91,8 @@ const ProductDetails = () => {
       </div>
       <div className="px-10 space-y-4 mt-10">
         <h1 className="bg-cyan-500 text-white justify-center items-center flex font-bold w-[150px] h-[30px]">Description</h1>
-        <h1>{description}</h1>
-        <p>This sleek sports car is perfect for racing around the living room. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright red color and realistic details make it a favorite among car enthusiasts of all ages.This sleek sports car is perfect for racing around the living room. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright red color and realistic details make it a favorite among car enthusiasts of all ages.</p>
+        <h1 className="text-lg">{description}</h1>
+        <p className="text-lg">This sleek sports car is perfect for racing around the living room. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright red color and realistic details make it a favorite among car enthusiasts of all ages.This sleek sports car is perfect for racing around the living room. With its aerodynamic design and smooth wheels, it can reach top speeds in no time. The bright red color and realistic details make it a favorite among car enthusiasts of all ages.</p>
       </div>
     </div>
   );

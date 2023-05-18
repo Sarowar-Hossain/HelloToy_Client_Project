@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Header = () => {
   const { user, logout } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = "https://fonts.googleapis.com/css2?family=Caveat&display=swap";
