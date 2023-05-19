@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Context";
-import ToyCard from "../AllToys/ToyCard";
 import Card from "./Card";
 import Swal from "sweetalert2";
 
@@ -31,10 +30,19 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {
-          const remainingData = data.filter((product) => product._id !== id);
-          const updatedData = data.find((product) => product._id === id);
-          const updatedinfo = [updatedData, ...remainingData];
-          setData(updatedinfo);
+          Swal.fire({
+            icon: "success",
+            title: "Update Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          const updatedData = data.map((product) => {
+            if (product._id === id) {
+              return { ...product, ...info };
+            }
+            return product;
+          });
+          setData(updatedData);
         }
       });
   };
@@ -65,30 +73,28 @@ const MyToys = () => {
             Descending
           </button>
         </div>
-        <table className="table w-full">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th>Name and Category</th>
-              <th>Seller and Quantity</th>
-              <th>Price & Rating</th>
-              <th>Details</th>
+
+        <table className="table mx-auto w-full">
+          <thead className="z-0">
+            <tr className="z-0 ">
+              <th className="text-base font-semibold">Product Picture</th>
+              <th className="text-base font-semibold">Product Name & Category</th>
+              <th className="text-base font-semibold">Seller Email & Quantity</th>
+              <th className="text-base font-semibold">Price & Rating</th>
+              <th className="text-base font-semibold">update / delete</th>
             </tr>
           </thead>
-          {data.map((product) => (
-            <Card
-              key={product._id}
-              setData={setData}
-              data={data}
-              product={product}
-              handleUpdate={handleUpdate}
-            ></Card>
-          ))}
+          <tbody className="z-10">
+            {data.map((product) => (
+              <Card
+                key={product._id}
+                setData={setData}
+                data={data}
+                product={product}
+                handleUpdate={handleUpdate}
+              />
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

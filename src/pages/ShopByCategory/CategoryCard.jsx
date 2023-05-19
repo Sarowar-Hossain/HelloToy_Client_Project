@@ -29,9 +29,9 @@ const CategoryCard = ({ category }) => {
 
   return (
     // <div className="flex">
-    <div className="card w-[450px] bg-base-100 shadow-xl text-center">
+    <div className="card mde:w-[350px] bg-base-100 shadow-xl text-center">
       <figure className="">
-        <img className="w-[400px] h-[450px]" src={picture} alt="Shoes" />
+        <img className="w-[350px] h-[350px]" src={picture} alt="Shoes" />
       </figure>
       <div className="card-body mx-auto">
         <h2 className="text-center text-gray-800 font-bold text-2xl">

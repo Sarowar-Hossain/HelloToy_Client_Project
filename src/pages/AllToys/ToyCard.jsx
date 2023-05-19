@@ -46,7 +46,7 @@ const ToyCard = ({ product }) => {
         </td>
         <td className="text-lg font-semibold">${price}</td>
         <th>
-          <Link to={`/productDetails/${_id}`} className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 rounded-lg">Details</Link>
+          <Link to={`/productDetails/${_id}`} className="hover:bg-cyan-600 font-semibold bg-cyan-500 text-xl text-white px-3 py-1 rounded-lg">Details</Link>
         </th>
       </tr>
     </tbody>

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const Card = ({ product, setData, data, handleUpdate }) => {
-  const [Modal, setModal] = useState(false);
-
+  const [modalOpen, setModalOpen] = useState(false);
   const {
     name,
     picture,
@@ -16,10 +14,12 @@ const Card = ({ product, setData, data, handleUpdate }) => {
     subCategory,
     _id,
     description,
+    sellerEmail
   } = product;
 
+  // console.log(product)
   const toggleModal = () => {
-    setModal(!Modal);
+    setModalOpen(!modalOpen);
   };
 
   const handleSubmit = (e) => {
@@ -65,115 +65,168 @@ const Card = ({ product, setData, data, handleUpdate }) => {
     });
   };
 
-  const UpdateModal = () => {
-    return (
-      <div className="fixed z-10 inset-0 overflow-y-auto">
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="bg-white rounded-lg p-8 space-y-6 w-1/4 border-4 border-cyan-500">
-            <h2 className="text-xl font-semibold text-center">
-              Update Product Details
-            </h2>
-            <form onSubmit={handleSubmit}>
-              <div className="flex flex-col space-y-4">
-                <label className="font-medium" htmlFor="price">
-                  Price:
-                </label>
-                <input
-                  type="number"
-                  name="price"
-                  defaultValue={price}
-                  className="input input-bordered input-info w-full"
-                />
-
-                <label className="font-medium" htmlFor="quantity">
-                  Available Quantity:
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  defaultValue={quantity}
-                  className="input input-bordered input-info w-full "
-                />
-                <label className="font-medium" htmlFor="picture">
-                  Product Picture URL:
-                </label>
-                <input
-                  type="text"
-                  name="picture"
-                  defaultValue={picture}
-                  className="input input-bordered input-info w-full "
-                />
-                <label className="font-medium" htmlFor="description">
-                  Description:
-                </label>
-                <textarea
-                  name="description"
-                  defaultValue={description}
-                  className="input input-bordered input-info w-full"
-                ></textarea>
-
-                <button
-                  type="submit"
-                  className="bg-cyan-500 text-white mt-4 rounded-lg px-4 py-2 hover:bg-cyan-600"
-                >
-                  Update
-                </button>
-              </div>
-            </form>
+  return (
+    <tr className="hover:border-2 border-cyan-500">
+      <td>
+        <div className="avatar me-2">
+          <div className="rounded-lg w-[100px] h-[100px]">
+            <img src={picture} alt="Avatar Tailwind CSS Component" />
           </div>
         </div>
-      </div>
-    );
-  };
+      </td>
+      <td>
+        <div className="text-left space-y-3">
+          <div className="font-bold">{name}</div>
+          <div className="text-sm opacity-50">Category: {subCategory}</div>
+        </div>
+      </td>
+      <td>
+        {sellerEmail}
+        <br />
+        <span className="text-sm">Quantity : {quantity}</span>
+      </td>
+      <td className="text-xl font-semibold">
+        ${price}
+        <br />
+        <span className="text-sm font-base">Rating: {rating}</span>
+      </td>
+      <th className="space-x-3 items-center">
+        <button
+          onClick={toggleModal}
+          className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded"
+        >
+          Update
+        </button>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="hover:bg-orange-700 font-semibold bg-orange-500 text-base text-white px-3 py-1 rounded"
+        >
+          Delete
+        </button>
+      </th>
+      {modalOpen && (
+        <UpdateModal
+          handleSubmit={handleSubmit}
+          toggleModal={toggleModal}
+          product={product}
+        />
+      )}
+    </tr>
+  );
+};
+
+const UpdateModal = ({ handleSubmit, toggleModal, product }) => {
+  const { name, picture, price, quantity, description } = product;
 
   return (
-    <tbody>
-      <tr className="hover:border-2 border-cyan-500">
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <td>
-          <div className="flex items-center space-x-3">
-            <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
-                <img src={picture} alt="Avatar Tailwind CSS Component" />
-              </div>
+    <tr className="">
+      <td colSpan="5">
+        <div className="fixed z-50 inset-0 overflow-y-auto">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity">
+              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
-            <div>
-              <div className="font-bold">{name}</div>
-              <div className="text-sm opacity-50">Category: {subCategory}</div>
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+            &#8203;
+            <div
+              className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-headline"
+            >
+              <form onSubmit={handleSubmit}>
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="col-span-2">
+                      <label
+                        htmlFor="price"
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                      >
+                        Price
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={price}
+                        name="price"
+                        id="price"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Enter price"
+                        required
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <label
+                        htmlFor="quantity"
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                      >
+                        Quantity
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={quantity}
+                        name="quantity"
+                        id="quantity"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Enter quantity"
+                        required
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <label
+                        htmlFor="picture"
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                      >
+                        Picture URL
+                      </label>
+                      <input
+                        type="url"
+                        defaultValue={picture}
+                        name="picture"
+                        id="picture"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Enter picture URL"
+                        required
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <label
+                        htmlFor="description"
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                      >
+                        Description
+                      </label>
+                      <textarea
+                        defaultValue={description}
+                        name="description"
+                        id="description"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Enter description"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                  <button
+                    type="submit"
+                    className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded sm:ml-3 sm:w-auto sm:text-sm"
+                  >
+                    Save
+                  </button>
+                  <button
+                    onClick={toggleModal}
+                    type="button"
+                    className="hover:bg-gray-200 font-semibold bg-gray-100 text-base text-gray-600 px-3 py-1 rounded sm:ml-3 sm:w-auto sm:text-sm"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-        </td>
-        <td>
-          {sellerName}
-          <br />
-          <span className="text-sm">Quantity : {quantity}</span>
-        </td>
-        <td className="text-xl font-semibold">
-          ${price}
-          <br />
-          <span className="text-sm font-base">Rating: {rating}</span>
-        </td>
-        <th className="space-x-3 items-center">
-          <button
-            onClick={toggleModal}
-            className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded"
-          >
-            Update
-          </button>
-          <button
-            onClick={() => handleDelete(_id)}
-            className="hover:text-orange-700 font-semibold text-2xl text-orange-500 px-3"
-          >
-            <FaTrash></FaTrash>
-          </button>
-        </th>
-      </tr>
-      {Modal && <UpdateModal />}
-    </tbody>
+        </div>
+      </td>
+    </tr>
   );
 };
 
