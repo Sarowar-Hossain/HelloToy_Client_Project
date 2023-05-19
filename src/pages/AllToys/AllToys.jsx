@@ -5,10 +5,11 @@ import { TailSpin } from "react-loader-spinner";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
-  const {loading, setLoading, setTitle } = useContext(UserContext);
-  setTitle("AllToys")
+  const [productLoad, SetProductLoad] = useState();
+  const { loading, setLoading, setTitle } = useContext(UserContext);
+  setTitle("AllToys");
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(`http://localhost:5000/products?limit=${productLoad}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -16,9 +17,14 @@ const AllToys = () => {
           setLoading(false);
         }
       });
-  }, []);
+  }, [productLoad]);
 
-  console.log(products);
+  const pageLoader = (e) => {
+    const num = e.target.value;
+    SetProductLoad(num);
+  };
+
+  console.log(productLoad);
 
   return (
     <div>
@@ -58,6 +64,24 @@ const AllToys = () => {
           </table>
         </div>
       )}
+      <div className="w-full border-t-2 my-2"></div>
+      <div className="flex items-center justify-center gap-4 my-4">
+        <label
+          htmlFor="subCategory"
+          className="block text-gray-700 text-sm font-medium"
+        >
+          Page Load
+        </label>
+        <form onChange={pageLoader}>
+          <select>
+            <option value={20}>20</option>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={30}>30</option>
+            <option value={50}>50</option>
+          </select>
+        </form>
+      </div>
     </div>
   );
 };
