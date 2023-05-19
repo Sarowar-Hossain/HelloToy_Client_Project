@@ -11,8 +11,8 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          setLoading(false);
           setProducts(data);
+          setLoading(false);
         }
       });
   }, []);
