@@ -54,6 +54,7 @@ const AddToys = () => {
           </label>
           <input
             type="text"
+            required
             name="pictureUrl"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -63,6 +64,7 @@ const AddToys = () => {
             Name
           </label>
           <input
+          required
             type="text"
             name="name"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -76,6 +78,7 @@ const AddToys = () => {
             Seller Name
           </label>
           <input
+          required
             type="text"
             name="sellerName"
             defaultValue={user?.displayName}
@@ -90,6 +93,7 @@ const AddToys = () => {
             Seller Email
           </label>
           <input
+          required
             type="email"
             name="sellerEmail"
             defaultValue={user?.email}
@@ -120,7 +124,8 @@ const AddToys = () => {
           <label htmlFor="price" className="block text-gray-700 font-bold mb-2">
             Price
           </label>
-          <input
+          <input 
+          required
             type="text"
             name="price"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -134,6 +139,7 @@ const AddToys = () => {
             Rating
           </label>
           <input
+          required
             type="text"
             name="rating"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -147,6 +153,7 @@ const AddToys = () => {
             Available Quantity
           </label>
           <input
+          required
             type="number"
             name="availableQuantity"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

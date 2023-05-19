@@ -7,14 +7,18 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const { user, setTitle } = useContext(UserContext);
   const [data, setData] = useState([]);
-  setTitle('MyToys');
+  const [sortOrder, setSortOrder] = useState("asc");
+  setTitle("MyToys");
+
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys?sellerEmail=${user?.email}`)
+    fetch(
+      `http://localhost:5000/mytoys?sellerEmail=${user?.email}&sortOrder=${sortOrder}&sortBy=price`
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
       });
-  }, []);
+  }, [sortOrder]);
 
   const handleUpdate = (id, info) => {
     fetch(`http://localhost:5000/mytoys/${id}`, {
@@ -27,15 +31,7 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {
-          Swal.fire({
-            icon: "success",
-            title: "Delete Successful",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          const remainingData = data.filter(
-            (product) => product._id !== id
-          );
+          const remainingData = data.filter((product) => product._id !== id);
           const updatedData = data.find((product) => product._id === id);
           const updatedinfo = [updatedData, ...remainingData];
           setData(updatedinfo);
@@ -43,12 +39,32 @@ const MyToys = () => {
       });
   };
 
-  console.log(data);
+  const handleSortAscending = () => {
+    setSortOrder("asc");
+  };
+
+  const handleSortDescending = () => {
+    setSortOrder("desc");
+  };
 
   return (
     <div>
-      {" "}
       <div className="overflow-x-auto w-full">
+        <div className="flex justify-end gap-8 items-center text-center mb-3">
+          <p className="">Sort by Price:</p>
+          <button
+            onClick={handleSortAscending}
+            className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded"
+          >
+            Ascending
+          </button>
+          <button
+            onClick={handleSortDescending}
+            className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded"
+          >
+            Descending
+          </button>
+        </div>
         <table className="table w-full">
           {/* head */}
           <thead>
