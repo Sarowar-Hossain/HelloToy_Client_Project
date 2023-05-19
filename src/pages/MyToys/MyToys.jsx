@@ -32,12 +32,17 @@ const MyToys = () => {
               </th>
               <th>Name and Category</th>
               <th>Seller and Quantity</th>
-              <th>Price</th>
+              <th>Price & Rating</th>
               <th>Details</th>
             </tr>
           </thead>
           {data.map((product) => (
-            <Card key={product._id} product={product}></Card>
+            <Card
+              key={product._id}
+              setData={setData}
+              data={data}
+              product={product}
+            ></Card>
           ))}
         </table>
       </div>
