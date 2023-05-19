@@ -2,29 +2,44 @@ import React, { useContext, useEffect, useState } from "react";
 import ToyCard from "./ToyCard";
 import { UserContext } from "../../Context/Context";
 import { TailSpin } from "react-loader-spinner";
+import { FaSearch } from "react-icons/fa";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   const [productLoad, SetProductLoad] = useState();
+  const [search, setSearch] = useState([]);
+
   const { loading, setLoading, setTitle } = useContext(UserContext);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchString = e.target.searchfield.value;
+    setSearch(searchString);
+  };
+
+  // console.log("search:", search);
+
   setTitle("AllToys");
   useEffect(() => {
-    fetch(`http://localhost:5000/products?limit=${productLoad}`)
+    fetch(
+      `http://localhost:5000/products?limit=${productLoad}&search=${search}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {
           setProducts(data);
           setLoading(false);
+          console.log(data);
         }
       });
-  }, [productLoad]);
+  }, [productLoad, search]);
 
   const pageLoader = (e) => {
     const num = e.target.value;
     SetProductLoad(num);
   };
 
-  console.log(productLoad);
+  // console.log(productLoad);
 
   return (
     <div>
@@ -43,6 +58,29 @@ const AllToys = () => {
         </div>
       ) : (
         <div className="overflow-x-auto w-full">
+          <div className="flex justify-center my-4 items-center">
+            <form
+              className="flex justify-center gap-4 items-center"
+              onSubmit={handleSearch}
+            >
+              <input
+                type="text"
+                id="simple-search"
+                name="searchfield"
+                className="text-gray-900 text-sm rounded-lg block w-full p-3"
+                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                required
+              />
+              <button
+                type="submit"
+                className="hover:bg-cyan-600 font-semibold bg-cyan-500 text-xl text-white px-3 py-1 rounded-lg"
+              >
+                Search
+              </button>
+            </form>
+          </div>
           <table className="table w-full">
             {/* head */}
             <thead>
