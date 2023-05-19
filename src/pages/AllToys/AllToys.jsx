@@ -5,7 +5,8 @@ import { TailSpin } from "react-loader-spinner";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
-  const {loading, setLoading } = useContext(UserContext);
+  const {loading, setLoading, setTitle } = useContext(UserContext);
+  setTitle("AllToys")
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())

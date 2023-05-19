@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const Card = ({ product, setData, data }) => {
+const Card = ({ product, setData, data, handleUpdate }) => {
   const [Modal, setModal] = useState(false);
 
   const {
@@ -31,20 +31,8 @@ const Card = ({ product, setData, data }) => {
 
     const info = { price, quantity, picture, description };
 
-    fetch(`http://localhost:5000/mytoys/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("updated", data);
-        // setData(data);
-      });
+    handleUpdate(_id, info);
 
-    console.log(_id);
     toggleModal();
   };
 
@@ -169,7 +157,7 @@ const Card = ({ product, setData, data }) => {
           <br />
           <span className="text-sm font-base">Rating: {rating}</span>
         </td>
-        <th className="space-x-3  items-center">
+        <th className="space-x-3 items-center">
           <button
             onClick={toggleModal}
             className="hover:bg-cyan-700 font-semibold bg-cyan-500 text-base text-white px-3 py-1 rounded"

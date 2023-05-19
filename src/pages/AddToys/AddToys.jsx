@@ -4,8 +4,8 @@ import { UserContext } from "../../Context/Context";
 
 const AddToys = () => {
   const [subCategory, setSubCategory] = useState("");
-  const { user } = useContext(UserContext);
-
+  const { user, setTitle } = useContext(UserContext);
+  setTitle("AddToys");
   const handleSubmit = (e) => {
     e.preventDefault();
     const picture = e.target.pictureUrl.value;
@@ -26,7 +26,7 @@ const AddToys = () => {
       rating,
       quantity,
       description,
-      price
+      price,
     };
 
     fetch("http://localhost:5000/addtoys", {

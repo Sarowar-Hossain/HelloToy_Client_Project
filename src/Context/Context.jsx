@@ -20,6 +20,7 @@ const Context = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [title, setTitle] = useState('');
 
   // googleSignIn
   const googleSignIn = () => {
@@ -58,6 +59,12 @@ const Context = ({ children }) => {
     return unsubscribe();
   }, []);
 
+  // dynamic title
+  
+  useEffect(() => {
+    document.title = `helloToy.com | ${title}`;
+  }, [title]);
+
   // spinner
   const spinner = () => {
     return (
@@ -77,6 +84,7 @@ const Context = ({ children }) => {
   const info = {
     user,
     loading,
+    setTitle,
     setLoading,
     googleSignIn,
     userSignUp,

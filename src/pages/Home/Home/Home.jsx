@@ -7,7 +7,8 @@ import { UserContext } from "../../../Context/Context";
 import { TailSpin } from "react-loader-spinner";
 
 const Home = () => {
-  const { user, spinner } = useContext(UserContext);
+  const { user, spinner, setTitle } = useContext(UserContext);
+  setTitle("Home");
   return (
     <div>
       {/* {user ? (
