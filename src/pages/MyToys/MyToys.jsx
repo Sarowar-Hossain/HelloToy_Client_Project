@@ -11,7 +11,7 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/mytoys?sellerEmail=${user?.email}&sortOrder=${sortOrder}&sortBy=price`
+      `https://toy-server-five.vercel.app/mytoys?sellerEmail=${user?.email}&sortOrder=${sortOrder}&sortBy=price`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -20,7 +20,7 @@ const MyToys = () => {
   }, [sortOrder]);
 
   const handleUpdate = (id, info) => {
-    fetch(`http://localhost:5000/mytoys/${id}`, {
+    fetch(`https://toy-server-five.vercel.app/mytoys/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

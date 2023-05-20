@@ -21,7 +21,7 @@ const AllToys = () => {
   setTitle("AllToys");
   useEffect(() => {
     fetch(
-      `http://localhost:5000/products?limit=${productLoad}&search=${search}`
+      `https://toy-server-five.vercel.app/products?limit=${productLoad}&search=${search}`
     )
       .then((res) => res.json())
       .then((data) => {

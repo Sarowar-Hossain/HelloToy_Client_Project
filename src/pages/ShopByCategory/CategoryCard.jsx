@@ -10,7 +10,7 @@ const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
 
   const handleDetails = (id) => {
-    if(!user){
+    if (!user) {
       Swal.fire({
         title: "For View Details!",
         text: "Please Login First!",
@@ -19,16 +19,15 @@ const CategoryCard = ({ category }) => {
         confirmButtonText: "Okay",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login');
+          navigate("/login");
         }
       });
-    }else{
+    } else {
       navigate(`/productDetails/${id}`);
     }
   };
 
   return (
-    // <div className="flex">
     <div className="card mde:w-[350px] bg-base-100 shadow-xl text-center">
       <figure className="">
         <img className="w-[350px] h-[350px]" src={picture} alt="Shoes" />
@@ -54,7 +53,6 @@ const CategoryCard = ({ category }) => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/productDetails/${params.id}`),
+          fetch(`https://toy-server-five.vercel.app/productDetails/${params.id}`),
       },
     ],
   },
