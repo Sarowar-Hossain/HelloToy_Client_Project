@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const data = useLoaderData();
@@ -25,6 +26,24 @@ const ProductDetails = () => {
     _id,
     description,
   } = data;
+
+  const handleAddtoCart = ()=>{
+    Swal.fire({
+      icon: "success",
+      title: "Add to Cart Successful",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  }
+  const handleBuyNow = ()=>{
+    Swal.fire({
+      icon: "success",
+      title: "Thank You",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  }
+
 
   console.log(data);
   return (
@@ -58,10 +77,14 @@ const ProductDetails = () => {
           <p>Hurry Only {quantity} units left in stock!</p>
 
           <div className="flex flex-col gap-4 my-4">
-            <button className="border-cyan-500 border-2 hover:bg-cyan-500 w-full hover:text-white text-cyan-500 text-xl font-bold py-2 px-6 rounded-lg">
+            <button
+            onClick={handleAddtoCart}
+            className="border-cyan-500 border-2 hover:bg-cyan-500 w-full hover:text-white text-cyan-500 text-xl font-bold py-2 px-6 rounded-lg">
               Add to Cart
             </button>
-            <button className="bg-cyan-500 hover:bg-cyan-700 w-full text-white text-xl font-bold py-2 px-6 rounded-lg">
+            <button
+            onClick={handleBuyNow}
+            className="bg-cyan-500 hover:bg-cyan-700 w-full text-white text-xl font-bold py-2 px-6 rounded-lg">
               Buy it Now
             </button>
           </div>

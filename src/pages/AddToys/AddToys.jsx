@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../Context/Context";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
   const [subCategory, setSubCategory] = useState("");
@@ -39,12 +40,24 @@ const AddToys = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Thank You",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          e.target.reset();
+        }
       });
   };
 
   return (
     <div className="w-1/2 rounded-lg my-6 mx-auto">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label
@@ -61,7 +74,10 @@ const AddToys = () => {
             />
           </div>
           <div>
-            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
               Name
             </label>
             <input
@@ -122,10 +138,13 @@ const AddToys = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="price" className="block text-gray-700 text-sm font-bold mb-2">
+            <label
+              htmlFor="price"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
               Price
             </label>
-            <input 
+            <input
               required
               type="text"
               name="price"

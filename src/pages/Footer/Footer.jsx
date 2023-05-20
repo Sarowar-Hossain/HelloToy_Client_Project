@@ -10,58 +10,74 @@ const Footer = () => {
   return (
     <div className="container mx-auto bg-cyan-50 mt-6">
       <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-        <div>
-          <Link to="/">
-            <h1
-              className="text-5xl text-cyan-500 font-serif text-center underline font-semibold mb-8"
-              style={{ fontFamily: "Caveat, cursive" }}
-            >
-              helloToy.com
-            </h1>
-          </Link>
+        <div className="flex space-x-8 items-center justify-center">
+          <div className="flex flex-col justify-start">
+            <div className="flex md:block">
+              <Link to="/">
+                <h1
+                  className="text-5xl text-cyan-500 font-serif text-center underline font-semibold mb-8"
+                  style={{ fontFamily: "Caveat, cursive" }}
+                >
+                  helloToy.com
+                </h1>
+              </Link>
+            </div>
+            <nav className="flex flex-wrap justify-center items-center mx-5 -my-2">
+              <div className="px-5 py-2">
+                <Link
+                  to="/"
+                  className="text-base leading-6 text-gray-500 hover:text-gray-900"
+                >
+                  Home
+                </Link>
+              </div>
+              <div className="px-5 py-2">
+                <Link
+                  to="/blog"
+                  className="text-base leading-6 text-gray-500 hover:text-gray-900"
+                >
+                  Blog
+                </Link>
+              </div>
+              <div className="px-5 py-2">
+                <Link
+                  to="/alltoys"
+                  className="text-base leading-6 text-gray-500 hover:text-gray-900"
+                >
+                  All Toys
+                </Link>
+              </div>
+              <div className="px-5 py-2">
+                <Link
+                  to="/addtoys"
+                  className="text-base leading-6 text-gray-500 hover:text-gray-900"
+                >
+                  Add Toys
+                </Link>
+              </div>
+              <div className="px-5 py-2">
+                <Link
+                  to="/mytoys"
+                  className="text-base leading-6 text-gray-500 hover:text-gray-900"
+                >
+                  My Toys
+                </Link>
+              </div>
+            </nav>
+          </div>
+          <div className="flex flex-col justify-start">
+            <p className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Email: sarowar@demo.com{" "}
+            </p>
+            <p className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Phone: +123456789
+            </p>
+            <p className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Address: Sarowar Hossain 132, My Street, <br /> Rajshahi, Bangladesh
+              12401
+            </p>
+          </div>
         </div>
-        <nav className="flex flex-wrap justify-center items-center mx-5 -my-2">
-          <div className="px-5 py-2">
-            <Link
-              to="/"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
-            >
-              Home
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link
-              to="/blog"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
-            >
-              Blog
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link
-              to="/alltoys"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
-            >
-              All Toys
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link
-              to="/addtoys"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
-            >
-              Add Toys
-            </Link>
-          </div>
-          <div className="px-5 py-2">
-            <Link
-              to="/mytoys"
-              className="text-base leading-6 text-gray-500 hover:text-gray-900"
-            >
-              My Toys
-            </Link>
-          </div>
-        </nav>
         <div className="flex justify-center mt-8 space-x-6">
           <a href="#" className="text-gray-400 hover:text-gray-500">
             <span className="sr-only">Facebook</span>

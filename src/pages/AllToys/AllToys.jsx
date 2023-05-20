@@ -7,7 +7,7 @@ import { FaSearch } from "react-icons/fa";
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   const [productLoad, SetProductLoad] = useState();
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
 
   const { loading, setLoading, setTitle } = useContext(UserContext);
 
@@ -17,7 +17,7 @@ const AllToys = () => {
     setSearch(searchString);
   };
 
-  // console.log("search:", search);
+  console.log("search:", search);
 
   setTitle("AllToys");
   useEffect(() => {

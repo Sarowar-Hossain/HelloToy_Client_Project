@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
 import { updateProfile } from "firebase/auth";
 
@@ -24,7 +24,7 @@ const Register = () => {
         displayName: name,
         photoURL: photo,
       })
-        .then(() => {
+        .then(() => { 
           logout();
           navigate('/login')
           e.target.reset();
