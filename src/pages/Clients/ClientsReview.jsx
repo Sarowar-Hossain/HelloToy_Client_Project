@@ -10,9 +10,9 @@ const ClientsReview = () => {
       >
         Clients Reviews
       </h1>
-      <div className="w-full md:flex">
-        <div className="w-1/2 mx-auto p-3 md:w-[95%] my-10">
-          <div className="relative bg-cyan-500 text-white rounded-e-3xl h-[420px]">
+      <div className="w-full lg:flex">
+        <div className="lg:w-1/2  mx-auto p-3 md:w-[95%] my-10">
+          <div className="relative bg-cyan-500 text-white rounded-e-3xl lg:h-[420px]">
             <div className="p-8 md:p-12">
               <h1
                 className="text-4xl md:text-5xl font-semibold mb-6"
@@ -49,8 +49,8 @@ const ClientsReview = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 mx-auto p-3 md:w-[95%] my-10">
-          <div className="relative bg-cyan-500 text-white rounded-e-3xl h-[420px]">
+        <div className="lg:w-1/2 mx-auto p-3 md:w-[95%] my-10">
+          <div className="relative bg-cyan-500 text-white rounded-e-3xl lg:h-[420px]">
             <div className="p-8 md:p-12">
               <h1
                 className="text-4xl md:text-5xl font-semibold mb-6"
@@ -59,14 +59,8 @@ const ClientsReview = () => {
                 What Our Clients Say?
               </h1>
               <p className="md:w-[500px]">
-                "I recently bought the Super Fun Playland toy for my 5-year-old
-                daughter, and it has exceeded my expectations! The quality is
-                outstanding, with vibrant colors and attention to detail. It
-                offers a range of activities, including a ball pit, climbing
-                wall, and slide, keeping my daughter entertained and encouraging
-                imaginative play. It's versatile for both indoor and outdoor
-                use, easy to assemble, and safe for children. I highly recommend
-                the Super Fun Playland for endless fun and excitement!"
+                "First off, the quality of the Adventure Explorer Set is exceptional. The pieces are made from sturdy and durable materials, ensuring they can withstand even the most adventurous play. The attention to detail in the design is impressive, with vibrant colors and realistic features that capture my son's attention from the moment he lays eyes on it.. It's versatile for both indoor and outdoor he attention to detail in the design is impressive
+                use!"
               </p>
               <div className="flex mt-6">
                 <FaStar className="text-2xl text-white"></FaStar>

@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="flex md:block">
               <Link to="/">
                 <h1
-                  className="text-5xl text-cyan-500 font-serif text-center underline font-semibold mb-8"
+                  className="text-4xl text-cyan-500 font-serif text-center underline font-semibold mb-8"
                   style={{ fontFamily: "Caveat, cursive" }}
                 >
                   helloToy.com
