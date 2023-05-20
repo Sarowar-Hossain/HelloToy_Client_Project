@@ -8,7 +8,7 @@ const Footer = () => {
   document.head.appendChild(link);
 
   return (
-    <div className="container mx-auto bg-cyan-50 mt-6">
+    <div className="container mx-auto bg-cyan-50 mt-6 border-2">
       <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <div className="flex space-x-8 items-center justify-center">
           <div className="flex flex-col justify-start">

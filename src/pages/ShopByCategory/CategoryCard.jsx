@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Rating from "react-rating";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
 import Swal from "sweetalert2";
 
@@ -8,6 +8,7 @@ const CategoryCard = ({ category }) => {
   const { user } = useContext(UserContext);
   const { name, picture, price, rating, _id } = category;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDetails = (id) => {
     if (!user) {
@@ -19,7 +20,7 @@ const CategoryCard = ({ category }) => {
         confirmButtonText: "Okay",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login");
+          navigate("/login", { state: { from: location.pathname } });
         }
       });
     } else {

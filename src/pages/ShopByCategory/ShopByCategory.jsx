@@ -11,7 +11,7 @@ const ShopByCategory = () => {
     fetch("https://toy-server-five.vercel.app/categoryData")
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setData(data);  
         handleCategory("cars");
         const filterData = data.filter((dt) => dt.subCategory === "cars");
         setCategoryData(filterData);

@@ -83,14 +83,13 @@ const AllToys = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <th>Name and Category</th>
-                <th>Seller and Quantity</th>
+
+                <th>Picture</th>
+                <th>Seller Name</th>
+                <th>Toy Name</th>
+                <th>Sub-category</th>
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Details</th>
               </tr>
             </thead>
