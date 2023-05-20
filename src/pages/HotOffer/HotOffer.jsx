@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const HotOffer = () => {
+  const [days, setDays] = useState(15);
+  const [hours, setHours] = useState(10);
+  const [minutes, setMinutes] = useState(24);
+  const [seconds, setSeconds] = useState(39);
+
+  useEffect(() => {
+    const countdownInterval = setInterval(() => {
+      // Update countdown values
+      if (seconds > 0) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      } else {
+        if (minutes > 0) {
+          setMinutes((prevMinutes) => prevMinutes - 1);
+          setSeconds(59);
+        } else {
+          if (hours > 0) {
+            setHours((prevHours) => prevHours - 1);
+            setMinutes(59);
+            setSeconds(59);
+          } else {
+            if (days > 0) {
+              setDays((prevDays) => prevDays - 1);
+              setHours(23);
+              setMinutes(59);
+              setSeconds(59);
+            }
+          }
+        }
+      }
+    }, 1000);
+
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(countdownInterval);
+  }, [days, hours, minutes, seconds]);
+
   return (
     <div className="w-full ">
       <h1
@@ -35,25 +70,25 @@ const HotOffer = () => {
             <div className="flex gap-5">
               <div>
                 <span className="countdown font-mono text-4xl">
-                  <span style={{ "--value": 15 }}></span>
+                  <span style={{ "--value": days }}></span>
                 </span>
                 days
               </div>
               <div>
                 <span className="countdown font-mono text-4xl">
-                  <span style={{ "--value": 10 }}></span>
+                  <span style={{ "--value": hours }}></span>
                 </span>
                 hours
               </div>
               <div>
                 <span className="countdown font-mono text-4xl">
-                  <span style={{ "--value": 24 }}></span>
+                  <span style={{ "--value": minutes }}></span>
                 </span>
                 min
               </div>
               <div>
                 <span className="countdown font-mono text-4xl">
-                  <span style={{ "--value": 39 }}></span>
+                  <span style={{ "--value": seconds }}></span>
                 </span>
                 sec
               </div>
