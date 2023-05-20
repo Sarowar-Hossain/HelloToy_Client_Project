@@ -17,6 +17,7 @@ const AllToys = () => {
     setSearch(searchString);
   };
 
+  // default product load and search, limit apply and fetch
 
   setTitle("AllToys");
   useEffect(() => {

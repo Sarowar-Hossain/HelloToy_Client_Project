@@ -7,6 +7,8 @@ const AddToys = () => {
   const { user, setTitle } = useContext(UserContext);
   setTitle("AddToys");
 
+  // handle submit
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const picture = e.target.pictureUrl.value;
@@ -29,6 +31,8 @@ const AddToys = () => {
       description,
       price,
     };
+
+    // added product fetch
 
     fetch("https://toy-server-five.vercel.app/addtoys", {
       method: "POST",

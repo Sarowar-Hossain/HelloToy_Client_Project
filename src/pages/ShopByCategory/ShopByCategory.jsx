@@ -34,7 +34,7 @@ const ShopByCategory = () => {
       <p className="my-8 font-semibold text-xl">Product Category</p>
       <div>
         <Tabs className="text-center font-semibold text-xl text-cyan-500">
-          <TabList>
+          <TabList className='font-bold text-2xl '>
             <Tab onClick={() => handleCategory("cars")}>Cars</Tab>
             <Tab onClick={() => handleCategory("Trucks")}>Trucks</Tab>
             <Tab onClick={() => handleCategory("city_vehicles")}>

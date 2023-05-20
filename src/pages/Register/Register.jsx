@@ -37,7 +37,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // navigator("/signin");
+     
         updateProfile(user, {
           displayName: name,
           photoURL: photo,

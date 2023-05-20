@@ -1,9 +1,11 @@
 import React from "react";
 import { FaStar, FaUserCircle } from "react-icons/fa";
 
+// home component child component
+
 const ClientsReview = () => {
   return (
-    <div>
+    <div className="mt-[100px]">
       <h1
         className="text-5xl my-4 text-cyan-500 font-serif text-center underline font-semibold md:ms-20 mt-8"
         style={{ fontFamily: "Caveat, cursive" }}

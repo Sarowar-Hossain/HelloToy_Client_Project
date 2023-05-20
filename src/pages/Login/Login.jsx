@@ -12,6 +12,9 @@ const Login = () => {
     useContext(UserContext);
   const navigate = useNavigate();
 
+
+  // google sign in
+
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -26,6 +29,8 @@ const Login = () => {
       });
   };
 
+
+  // login with email pass
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;

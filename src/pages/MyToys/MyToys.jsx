@@ -9,6 +9,9 @@ const MyToys = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   setTitle("MyToys");
 
+
+  // user posted product fetch
+
   useEffect(() => {
     fetch(
       `https://toy-server-five.vercel.app/mytoys?sellerEmail=${user?.email}&sortOrder=${sortOrder}&sortBy=price`
@@ -19,6 +22,8 @@ const MyToys = () => {
       });
   }, [sortOrder]);
 
+
+  // product details update
   const handleUpdate = (id, info) => {
     fetch(`https://toy-server-five.vercel.app/mytoys/${id}`, {
       method: "PATCH",

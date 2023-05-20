@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// home component child component
+
 const Gallery = () => {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -16,7 +18,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="mt-[80px]">
       <h1
         style={{ fontFamily: "Caveat, cursive" }}
         className="text-center font-bold text-3xl md:text-6xl my-8 text-cyan-500 underline"
