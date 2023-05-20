@@ -17,7 +17,6 @@ const AllToys = () => {
     setSearch(searchString);
   };
 
-  console.log("search:", search);
 
   setTitle("AllToys");
   useEffect(() => {
@@ -39,7 +38,6 @@ const AllToys = () => {
     SetProductLoad(num);
   };
 
-  // console.log(productLoad);
 
   return (
     <div>
@@ -68,7 +66,7 @@ const AllToys = () => {
                 id="simple-search"
                 name="searchfield"
                 className="text-gray-900 text-sm rounded-lg block w-full p-3"
-                placeholder="Search"
+                placeholder="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 required

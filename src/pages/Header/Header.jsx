@@ -70,65 +70,68 @@ const Header = () => {
                     ? "font-semibold underline text-xl text-cyan-500"
                     : "font-semibold text-xl"
                 }
-                to="/addtoys"
-              >
-                Add Toys
-              </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-xl text-cyan-500"
-                    : "font-semibold text-xl"
-                }
-                to="/mytoys"
-              >
-                My Toys
-              </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-xl text-cyan-500"
-                    : "font-semibold text-xl"
-                }
                 to="/blog"
               >
                 Blog
               </NavLink>
+
               {user ? (
-                <div className="relative inline-block text-left">
-                  <button
-                    className="nav-link flex text-sm border-2  rounded-full"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                <>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-semibold underline text-xl text-cyan-500"
+                        : "font-semibold text-xl"
+                    }
+                    to="/addtoys"
                   >
-                    <img
-                      className="h-[50px] w-[50px] rounded-full"
-                      src={user?.photoURL}
-                      title={user?.displayName}
-                    />
-                  </button>
-                  <div
-                    className={`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg ${
-                      isMenuOpen ? "block" : "hidden"
-                    }`}
+                    Add Toys
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-semibold underline text-xl text-cyan-500"
+                        : "font-semibold text-xl"
+                    }
+                    to="/mytoys"
                   >
-                    <div className="py-1 rounded-md bg-white shadow-xs">
-                      <NavLink
-                        to="/profile"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      >
-                        Profile
-                      </NavLink>
-                      <button
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                        onClick={handleLogout}
-                      >
-                        Sign out
-                      </button>
+                    My Toys
+                  </NavLink>
+                  <div className="relative inline-block text-left">
+                    <button
+                      className="nav-link flex text-sm border-2  rounded-full"
+                      onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                      <img
+                        className="h-[50px] w-[50px] rounded-full"
+                        src={user?.photoURL}
+                        title={user?.displayName}
+                      />
+                    </button>
+                    <div
+                      className={`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg ${
+                        isMenuOpen ? "block" : "hidden"
+                      }`}
+                    >
+                      <div className="py-1 rounded-md bg-white shadow-xs">
+                        <NavLink
+                          to="/profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        >
+                          Profile
+                        </NavLink>
+                        <button
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                          onClick={handleLogout}
+                        >
+                          Sign out
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </>
               ) : (
-                <NavLink to="/login" className="nav-link">
+                <NavLink to="/login" className="nav-link px-6 py-1 rounded-lg bg-cyan-500 text-white font-semibold text-2xl">
                   Login
                 </NavLink>
               )}
@@ -172,39 +175,55 @@ const Header = () => {
       </div>
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 space-x-4 text-center pb-3 sm:px-3">
-          <NavLink exact to="/" className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-lg text-cyan-500"
-                    : "font-semibold text-base"
-                }>
+          <NavLink
+            exact
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold underline text-lg text-cyan-500"
+                : "font-semibold text-base"
+            }
+          >
             Home
           </NavLink>
-          <NavLink to="/alltoys" className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-lg text-cyan-500"
-                    : "font-semibold text-base"
-                }>
+          <NavLink
+            to="/alltoys"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold underline text-lg text-cyan-500"
+                : "font-semibold text-base"
+            }
+          >
             All Toys
           </NavLink>
-          <NavLink to="/addtoys" className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-lg text-cyan-500"
-                    : "font-semibold text-base"
-                }>
+          <NavLink
+            to="/addtoys"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold underline text-lg text-cyan-500"
+                : "font-semibold text-base"
+            }
+          >
             Add Toys
           </NavLink>
-          <NavLink to="/mytoys" className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-lg text-cyan-500"
-                    : "font-semibold text-base"
-                }>
+          <NavLink
+            to="/mytoys"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold underline text-lg text-cyan-500"
+                : "font-semibold text-base"
+            }
+          >
             My Toys
           </NavLink>
-          <NavLink to="/blog" className={({ isActive }) =>
-                  isActive
-                    ? "font-semibold underline text-lg text-cyan-500"
-                    : "font-semibold text-base"
-                }>
+          <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold underline text-lg text-cyan-500"
+                : "font-semibold text-base"
+            }
+          >
             Blog
           </NavLink>
         </div>

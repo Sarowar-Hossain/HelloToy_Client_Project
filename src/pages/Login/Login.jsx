@@ -46,14 +46,7 @@ const Login = () => {
       .catch((error) => console.log(error.message));
   };
 
-  // password reset
-  // const handlePassReset = () => {
-  //   passReset()
-  //     .then(() => {
-  //       console.log("please check your email");
-  //     })
-  //     .catch((error) => console.log(error.message));
-  // };
+
 
   return (
     <div className="flex h-screen max-w-screen max-h-screen justify-center items-center">
