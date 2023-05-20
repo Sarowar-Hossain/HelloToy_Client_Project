@@ -40,6 +40,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
 
       {
         path: "blog",
@@ -53,7 +61,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://toy-server-five.vercel.app/productDetails/${params.id}`),
+          fetch(
+            `https://toy-server-five.vercel.app/productDetails/${params.id}`
+          ),
       },
     ],
   },
