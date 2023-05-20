@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { userSignUp,logout } = useContext(UserContext);
+  const { userSignUp, logout } = useContext(UserContext);
   const navigate = useNavigate();
-
+  const [passwordError, setPasswordError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,28 +16,55 @@ const Register = () => {
     const password = e.target.password.value;
     const photo = e.target.photo.value;
 
+    const errors = [];
+
+    if (password.length < 6) {
+      errors.push("Your password must be at least 6 characters");
+    }
+    if (password.search(/[a-z]/i) < 0) {
+      errors.push("Your password must contain at least one letter.");
+    }
+    if (password.search(/[0-9]/) < 0) {
+      errors.push("Your password must contain at least one digit.");
+    }
+
+    if (errors.length > 0) {
+      setPasswordError(errors.join(" "));
+      return;
+    }
+
     userSignUp(email, password)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      // navigator("/signin");
-      updateProfile(user, {
-        displayName: name,
-        photoURL: photo,
-      })
-        .then(() => { 
-          logout();
-          navigate('/login')
-          e.target.reset();
-          console.log('successful')
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        // navigator("/signin");
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
         })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Registration Success",
+              showConfirmButton: false,
+              timer: 1000,
+            })
+            logout();
+            navigate("/login");
+            e.target.reset();
+            console.log("successful");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if(error.message==='Firebase: Error (auth/email-already-in-use).'){
+
+          setPasswordError('email already register');
+        }
+      });
   };
 
   return (
@@ -50,7 +78,7 @@ const Register = () => {
           <div className="mb-2">
             <label
               className="block text-cyan-500 text-xl font-semibold mb-2"
-              for="username"
+              htmlFor="username"
             >
               Name
             </label>
@@ -65,7 +93,7 @@ const Register = () => {
           <div className="mb-2">
             <label
               className="block text-cyan-500 text-xl font-semibold mb-2"
-              for="username"
+              htmlFor="username"
             >
               Email
             </label>
@@ -80,7 +108,7 @@ const Register = () => {
           <div className="mb-2">
             <label
               className="block text-cyan-500 text-xl font-semibold mb-2"
-              for="password"
+              htmlFor="password"
             >
               Password
             </label>
@@ -91,11 +119,14 @@ const Register = () => {
               type="password"
               placeholder="******************"
             />
+            {passwordError && (
+              <p className="text-red-500 text-sm mb-2">{passwordError}</p>
+            )}
           </div>
           <div className="mb-2">
             <label
               className="block text-cyan-500 text-xl font-semibold mb-2"
-              for="username"
+              htmlFor="username"
             >
               Photo URL
             </label>
