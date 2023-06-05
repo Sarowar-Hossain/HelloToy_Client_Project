@@ -9,7 +9,6 @@ const MyToys = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   setTitle("MyToys");
 
-
   // user posted product fetch
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const MyToys = () => {
         setData(data);
       });
   }, [sortOrder]);
-
 
   // product details update
   const handleUpdate = (id, info) => {
@@ -83,8 +81,12 @@ const MyToys = () => {
           <thead className="z-0">
             <tr className="z-0 ">
               <th className="text-base font-semibold">Product Picture</th>
-              <th className="text-base font-semibold">Product Name & Category</th>
-              <th className="text-base font-semibold">Seller Email & Quantity</th>
+              <th className="text-base font-semibold">
+                Product Name & Category
+              </th>
+              <th className="text-base font-semibold">
+                Seller Email & Quantity
+              </th>
               <th className="text-base font-semibold">Price & Rating</th>
               <th className="text-base font-semibold">update / delete</th>
             </tr>

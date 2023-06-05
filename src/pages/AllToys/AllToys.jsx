@@ -81,13 +81,11 @@ const AllToys = () => {
             </form>
           </div>
           <table className="table w-full">
-            {/* head */}
             <thead>
               <tr>
-
                 <th>Picture</th>
-                <th>Seller Name</th>
                 <th>Toy Name</th>
+                <th>Seller Name</th>
                 <th>Sub-category</th>
                 <th>Price</th>
                 <th>Quantity</th>

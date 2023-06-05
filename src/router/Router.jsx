@@ -26,11 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "addtoys",
-        element: (
-          <PrivateRoute>
-            <AddToys></AddToys>
-          </PrivateRoute>
-        ),
+        element: <AddToys></AddToys>,
       },
       {
         path: "mytoys",

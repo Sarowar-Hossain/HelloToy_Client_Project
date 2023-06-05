@@ -52,13 +52,13 @@ const HotOffer = () => {
         <div className="md:flex items-center gap-10">
           <div className="md:w-1/2">
             <img
-              className="md:w-full md:h-[800px] object-cover object-bottom rounded-2xl "
+              className="md:w-full md:h-[550px] object-cover object-bottom rounded-2xl "
               src="https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318361.jpg?w=740&t=st=1684438336~exp=1684438936~hmac=7e92e93bc3345bc5d998f9253707fa7170ea3736b3b567ae2344cda1e2d389b4"
               alt=""
             />
           </div>
           <div className="md:w-1/2 space-y-8 my-8 px-8 md:space-y-6">
-            <h1 className="font-bold text-center md:text-left text-4xl text-black">
+            <h1 className="font-semibold text-center font md:text-left text-5xl text-black">
               Kids Funny Car Toys
             </h1>
             <p className="font-bold text-center md:text-left text-3xl text-black">
@@ -99,9 +99,11 @@ const HotOffer = () => {
               tires can handle any terrain. The realistic design and attention
               to detail make it a favorite among young truck enthusiasts.
             </p>
-            <button className="px-8 py-3 bg-cyan-500 text-2xl font-bold text-white mt-4">
-              Buy Now
-            </button>
+            <Link to="/alltoys">
+              <button className="px-8 py-3 bg-cyan-500 text-2xl rounded hover:bg-cyan-600 font-bold text-white mt-4">
+                Buy Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

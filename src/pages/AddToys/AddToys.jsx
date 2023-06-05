@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../Context/Context";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddToys = () => {
   const [subCategory, setSubCategory] = useState("");
   const { user, setTitle } = useContext(UserContext);
   setTitle("AddToys");
+  const navigate = useNavigate();
 
   // handle submit
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const picture = e.target.pictureUrl.value;
@@ -34,33 +35,48 @@ const AddToys = () => {
 
     // added product fetch
 
-    fetch("https://toy-server-five.vercel.app/addtoys", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          Swal.fire({
-            icon: "success",
-            title: "Thank You",
-            showConfirmButton: false,
-            timer: 1000,
-          });
-          e.target.reset();
+    if (!user) {
+      Swal.fire({
+        title: "Please login first!",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Okay",
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/login");
+        } else if (result.isDenied) {
         }
       });
+    } else {
+      fetch("https://toy-server-five.vercel.app/addtoys", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addProduct),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.acknowledged) {
+            Swal.fire({
+              icon: "success",
+              title: "Thank You",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+            e.target.reset();
+          }
+        });
+    }
   };
 
   return (
     <div className="w-1/2 rounded-lg my-6 mx-auto">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white shadow-md rounded px-8 mb-4 py-20 space-y-12"
       >
         <div className="grid grid-cols-2 gap-4">
           <div>

@@ -2,11 +2,23 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
 import Swal from "sweetalert2";
+import logo from "../../assets/hellotoy.png";
+import ParticleImage from "react-particle-image";
 
 const Header = () => {
   const { user, logout } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const particleOptions = {
+    filter: ({ x, y, image }) => {
+      // Get pixel
+      const pixel = image.get(x, y);
+      // Make a particle for this pixel if blue > 50 (range 0-255)
+      return pixel.b > 50;
+    },
+    color: ({ x, y, image }) => "#61dafb",
+  };
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -33,13 +45,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center ">
-            <Link
-              style={{ fontFamily: "Caveat, cursive" }}
-              to="/"
-              title="home"
-              className=" font-bold text-cyan-500 normal-case text-5xl"
-            >
-              helloToy.Com
+            <Link style={{ fontFamily: "Caveat, cursive" }} to="/" title="home">
+              <h1 className="text-center font-bold text-6xl text-cyan-500 hover:text-cyan-600">
+                helloToy.Com
+              </h1>
             </Link>
           </div>
           <div className="hidden md:flex">
@@ -74,19 +83,19 @@ const Header = () => {
               >
                 Blog
               </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-semibold underline text-xl text-cyan-500"
+                    : "font-semibold text-xl"
+                }
+                to="/addtoys"
+              >
+                Add Toys
+              </NavLink>
 
               {user ? (
                 <>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive
-                        ? "font-semibold underline text-xl text-cyan-500"
-                        : "font-semibold text-xl"
-                    }
-                    to="/addtoys"
-                  >
-                    Add Toys
-                  </NavLink>
                   <NavLink
                     className={({ isActive }) =>
                       isActive
@@ -131,7 +140,10 @@ const Header = () => {
                   </div>
                 </>
               ) : (
-                <NavLink to="/login" className="nav-link px-6 py-1 rounded-lg bg-cyan-500 text-white font-semibold text-2xl">
+                <NavLink
+                  to="/login"
+                  className="nav-link px-6 py-1 rounded-lg bg-cyan-500 text-white font-semibold text-2xl"
+                >
                   Login
                 </NavLink>
               )}
